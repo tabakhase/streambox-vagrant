@@ -8,6 +8,9 @@
 #public_network: true
 ## set a fixed IP (will use DHCP if empty)
 #public_network_ip: 
+## use specific device to bridge (empty is usually fine - use when having lan+wlan)
+##  run "VBoxManage list bridgedifs" to see what you can use if needed.
+#public_network_bridge: 
 
 
 ## VM Memory

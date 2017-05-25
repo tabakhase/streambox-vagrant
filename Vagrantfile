@@ -170,12 +170,9 @@ Vagrant.configure(2) do |config|
 	config.vm.hostname = "tab-streambox"
 	
 	if defined?(settings['public_network']) && settings['public_network']
-		if defined?(settings['public_network_ip']) && ! settings['public_network_ip'].to_s.empty?
-			config.vm.network "public_network", ip: settings['public_network_ip']
-		else
-			## DHCP fallback
-			config.vm.network "public_network"
-		end
+		config.vm.network "public_network", \
+			ip: (defined?(settings['public_network_ip']) && ! settings['public_network_ip'].to_s.empty?)?settings['public_network_ip']:nil, \
+			bridge: (defined?(settings['public_network_bridge']) && ! settings['public_network_bridge'].to_s.empty?)?settings['public_network_bridge']:nil
 	end
 	
 	config.vm.provider "virtualbox" do |vb|
