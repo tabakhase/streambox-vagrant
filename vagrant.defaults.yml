@@ -21,7 +21,7 @@ vmopt_cpus: 4
 
 ## Twitch-StreamKey (like "live_1234_abcd")
 ##  Your streamkey: https://www.twitch.tv/dashboard -> Settings -> Streamkey
-twitch_streamkey: ""
+twitch_streamkey: 
 
 ## Twitch-Uplink-Server of choice (like "rtmp://.../app")
 ##  List of twitch.tv servers: http://bashtech.net/twitch/ingest.php
@@ -42,9 +42,9 @@ encoding_kilobuffer: 2500
 encoding_threads: 6
 ## Resolution of target video. Also you can use following syntax: -s 1280x720. 
 ## Video quality will be better in case you use downscaling by ffmpeg instead of first PS, because quicksync add too much sharpness into downscaled video. 
-##  Set to "" in case you are streaming in 1080p.
+##  Set to empty in case you are streaming in 1080p.
 encoding_resolution: 1280x720
 ## Downscale method. You can try "lanczos" method instead of "spline" as alternative. 
-##  Set to "" in case you are streaming in 1080p.
+##  Set to empty in case you are streaming in 1080p.
 encoding_scaler: spline
 

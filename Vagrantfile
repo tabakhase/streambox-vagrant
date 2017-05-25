@@ -195,8 +195,15 @@ Vagrant.configure(2) do |config|
 	
 	config.vm.provision "nginx_config_main", type: "file", run: "always", source: "./nginx/nginx.conf", destination: "/tmp/vagrantprovisioner/nginx/conf/nginx.conf"
 	config.vm.provision "nginx_config_apply", type: "shell", run: "always", :inline => script_nginxReconfigure, :args => [
-		settings['twitch_streamserver'], settings['twitch_streamkey'], 
-		settings['encoding_preset'], settings['encoding_framerate'], settings['encoding_kilobitrate'], settings['encoding_kilobuffer'], settings['encoding_threads'], settings['encoding_resolution'], settings['encoding_scaler']
+		(defined?(settings['twitch_streamserver']) && ! settings['twitch_streamserver'].to_s.empty?)?settings['twitch_streamserver']:"",
+		(defined?(settings['twitch_streamkey']) && ! settings['twitch_streamkey'].to_s.empty?)?settings['twitch_streamkey']:"",
+		(defined?(settings['encoding_preset']) && ! settings['encoding_preset'].to_s.empty?)?settings['encoding_preset']:"medium",
+		(defined?(settings['encoding_framerate']) && ! settings['encoding_framerate'].to_s.empty?)?settings['encoding_framerate']:30,
+		(defined?(settings['encoding_kilobitrate']) && ! settings['encoding_kilobitrate'].to_s.empty?)?settings['encoding_kilobitrate']:2000,
+		(defined?(settings['encoding_kilobuffer']) && ! settings['encoding_kilobuffer'].to_s.empty?)?settings['encoding_kilobuffer']:2000,
+		(defined?(settings['encoding_threads']) && ! settings['encoding_threads'].to_s.empty?)?settings['encoding_threads']:6,
+		(defined?(settings['encoding_resolution']) && ! settings['encoding_resolution'].to_s.empty?)?settings['encoding_resolution']:"",
+		(defined?(settings['encoding_scaler']) && ! settings['encoding_scaler'].to_s.empty?)?settings['encoding_scaler']:""
 	]
 	
 	
