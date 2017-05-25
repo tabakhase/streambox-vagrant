@@ -1,0 +1,47 @@
+##
+## copy to vagrant.local.yml, then uncomment as needed
+##  (remember to restart the box / run the RECONFIGURE script after making changes here.)
+##
+
+
+## use "bridge" to attach the VM to your LAN as if it where a real PC
+#public_network: true
+## set a fixed IP (will use DHCP if empty)
+#public_network_ip: 
+
+
+## VM Memory
+#vmopt_memory: 4096
+## VM CPU-Count
+#vmopt_cpus: 4
+
+
+## Twitch-StreamKey (like "live_1234_abcd")
+##  Your streamkey: https://www.twitch.tv/dashboard -> Settings -> Streamkey
+#twitch_streamkey: ""
+
+## Twitch-Uplink-Server of choice (like "rtmp://.../app")
+##  List of twitch.tv servers: http://bashtech.net/twitch/ingest.php
+#twitch_streamserver: rtmp://live-lhr.twitch.tv/app
+
+
+#### Upstream-Options
+## Corresponding OBS option - x264 CPU Preset. Change according to your CPU.
+#encoding_preset: medium
+## Corresponding OBS option - FPS. Replace 30 by OBS FPS setting.
+#encoding_framerate: 30
+## Corresponding OBS option - Max Bitrate. Set according to your needs.
+#encoding_kilobitrate: 2500
+## Corresponding OBS option - Buffer size. Set to Max Bitrate or use custom buffer size according to your needs.
+#encoding_kilobuffer: 2500
+## Set to 1.5 * logical processors, rounded down. In some cases ffmpeg/avconv can't detect CPU and use only one thread, so better to set it manually.
+##  Note that this relates to 'vmopt_cpus' above
+#encoding_threads: 6
+## Resolution of target video. Also you can use following syntax: -s 1280x720. 
+## Video quality will be better in case you use downscaling by ffmpeg instead of first PS, because quicksync add too much sharpness into downscaled video. 
+##  Set to "" in case you are streaming in 1080p.
+#encoding_resolution: 1280x720
+## Downscale method. You can try "lanczos" method instead of "spline" as alternative. 
+##  Set to "" in case you are streaming in 1080p.
+#encoding_scaler: spline
+

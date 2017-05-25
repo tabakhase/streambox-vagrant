@@ -1,0 +1,42 @@
+<html>
+<script src="flowplayer/flowplayer-3.2.13.min.js"></script>
+<h4>
+	Pick stream to launch:
+	<a href="#" onclick="launchPlayerRtmp('live/');">live/</a> - 
+	<a href="#" onclick="launchPlayerRtmp('live/live');">live/live</a> - 
+	<a href="#" onclick="launchPlayerRtmp('live/test');">live/test</a> - 
+	<a href="#" onclick="launchPlayerRtmp('test/');">test/</a> - 
+	<a href="#" onclick="launchPlayerRtmp('test/test');">test/test</a> - 
+	<a href="#" onclick="launchPlayerRtmp('test/live');">test/live</a> - 
+	<a href="#" onclick="launchPlayerRtmp('transcode/');">transcode/</a> - 
+	<a href="#" onclick="launchPlayerRtmp('transcode/test');">transcode/test</a> - 
+	<a href="#" onclick="launchPlayerRtmp('transcode/live');">transcode/live</a> - 
+</h4>
+
+<div id="fullplayer"></div>
+
+<script language="JavaScript">
+	function launchPlayerRtmp(pathing){
+		streamPath = 'rtmp://' + window.location.hostname + ':1935/' + pathing
+		
+		$f("fullplayer", "flowplayer/flowplayer-3.2.18.swf", {
+			clip: {
+				url: streamPath,
+				scaling: 'fit',
+				provider: 'rtmp'
+			},
+			plugins: {
+				rtmp: {
+					url: "flowplayer/flowplayer.rtmp-3.2.13.swf",
+					netConnectionUrl: streamPath
+				}
+			},
+			canvas: {
+				backgroundGradient: 'none'
+			}
+		});
+	}
+</script>
+
+
+</html>
