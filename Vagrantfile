@@ -142,6 +142,20 @@ script_getLogs = <<SCRIPT
 	echo ""
 SCRIPT
 
+script_getNetworking = <<SCRIPT
+	echo ""
+	echo "ip addr :"
+	ip addr
+	echo ""
+	echo "ip route :"
+	ip route
+	echo ""
+	echo "arp :"
+	arp
+	echo ""
+	echo ""
+SCRIPT
+
 
 
 require 'yaml'
@@ -218,5 +232,6 @@ Vagrant.configure(2) do |config|
 		config.vm.provision "get_details", type: "shell", run: "never", :inline => script_getDetails
 		config.vm.provision "get_performance", type: "shell", run: "never", :inline => script_getPerformance
 		config.vm.provision "get_logs", type: "shell", run: "never", :inline => script_getLogs
+		config.vm.provision "get_networking", type: "shell", run: "never", :inline => script_getNetworking
 	end
 end
