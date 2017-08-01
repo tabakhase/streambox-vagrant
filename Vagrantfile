@@ -1,6 +1,26 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+=begin
+
+    TAB_Streambox - VirtualMachine with NginxRTMP+encoders for capturecardless-dualPC streaming managed via Vagrant and a simple config file.
+    Copyright (C) 2017  Tabakhase
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+=end
+
 script_provisionInstallBase = <<SCRIPT
 	apt-get update
 	apt-get install -y build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common devscripts unzip wget diffutils || { echo ERROR; exit 1; }
